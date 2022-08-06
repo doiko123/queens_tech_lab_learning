@@ -52,7 +52,6 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void nextpage() async {
-    print('今からAページへ遷移しますよ');
     // Aページへ遷移
     await Navigator.of(context)
         .pushReplacement(MaterialPageRoute(builder: (context) {
