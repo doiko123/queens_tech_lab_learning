@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:task_01/pages/a_page.dart';
 
 void main() {
@@ -26,7 +27,13 @@ class MyHomePage extends StatefulWidget {
 
   @override
   State<MyHomePage> createState() {
-    print('createStateしてます');
+    Fluttertoast.showToast(
+        msg: 'createStateしてます',
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.BOTTOM,
+        backgroundColor: Colors.lightBlue,
+        textColor: Colors.white,
+        fontSize: 14.0);
     return _MyHomePageState();
   }
 }
@@ -36,7 +43,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _incrementCounter() {
     setState(() {
-      print('＋がタップされたのでsetStateしてます');
+      showToastMsg(
+        msgText: '＋がタップされたのでsetStateしてます',
+      );
       _counter++;
     });
     nextpage();
@@ -54,18 +63,24 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
-    print('initStateしてます');
+    showToastMsg(
+      msgText: 'initStateしてます',
+    );
   }
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    print("didChangeDependenciesしてます");
+    showToastMsg(
+      msgText: 'didChangeDependenciesしてます',
+    );
   }
 
   @override
   Widget build(BuildContext context) {
-    print('buildしてます');
+    showToastMsg(
+      msgText: 'buildしてます',
+    );
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -95,12 +110,30 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void deactivate() {
     super.deactivate();
-    print('deactivateしてます');
+    showToastMsg(
+      msgText: 'deactivateしてます',
+    );
   }
 
   @override
   void dispose() {
     super.dispose();
-    print('disposeしてます');
+    showToastMsg(
+      msgText: 'disposeしてます',
+    );
+  }
+
+  // トーストmsgを表示する
+  void showToastMsg({
+    required String msgText,
+  }) {
+    Fluttertoast.showToast(
+      msg: msgText,
+      toastLength: Toast.LENGTH_SHORT,
+      gravity: ToastGravity.BOTTOM,
+      backgroundColor: Colors.lightBlue,
+      textColor: Colors.white,
+      fontSize: 14.0,
+    );
   }
 }
