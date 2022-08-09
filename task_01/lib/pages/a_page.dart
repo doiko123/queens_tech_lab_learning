@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 
 class APage extends StatelessWidget {
-  const APage({Key? key}) : super(key: key);
-  static const _titleText = 'Aページですねん';
+  final String titleText;
+  const APage({
+    Key? key,
+    this.titleText = 'Aページですねん',
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(_titleText),
+        title: Text(titleText),
       ),
-      body: const Text(_titleText),
+      body: Text(titleText),
     );
   }
 }
