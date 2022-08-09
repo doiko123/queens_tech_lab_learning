@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:task_01/pages/a_page.dart';
+import 'package:task_01/utility/services/common_actions.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,34 +16,32 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
+  MyHomePage({Key? key, required this.title}) : super(key: key);
   final String title;
+  final CommonActions _commonActions = CommonActions();
 
   @override
   State<MyHomePage> createState() {
-    Fluttertoast.showToast(
-        msg: 'createStateしてます',
-        toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.BOTTOM,
-        backgroundColor: Colors.lightBlue,
-        textColor: Colors.white,
-        fontSize: 14.0);
+    _commonActions.showToastMsg(
+      msgText: 'createStateしてます',
+    );
     return _MyHomePageState();
   }
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final CommonActions _commonActions = CommonActions();
   int _counter = 0;
 
   void _incrementCounter() {
     setState(() {
-      showToastMsg(
+      _commonActions.showToastMsg(
         msgText: '＋がタップされたのでsetStateしてます',
       );
       _counter++;
@@ -62,7 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
-    showToastMsg(
+    _commonActions.showToastMsg(
       msgText: 'initStateしてます',
     );
   }
@@ -70,14 +68,14 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    showToastMsg(
+    _commonActions.showToastMsg(
       msgText: 'didChangeDependenciesしてます',
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    showToastMsg(
+    _commonActions.showToastMsg(
       msgText: 'buildしてます',
     );
     return Scaffold(
@@ -109,7 +107,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void deactivate() {
     super.deactivate();
-    showToastMsg(
+    _commonActions.showToastMsg(
       msgText: 'deactivateしてます',
     );
   }
@@ -117,22 +115,8 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void dispose() {
     super.dispose();
-    showToastMsg(
+    _commonActions.showToastMsg(
       msgText: 'disposeしてます',
-    );
-  }
-
-  // トーストmsgを表示する
-  void showToastMsg({
-    required String msgText,
-  }) {
-    Fluttertoast.showToast(
-      msg: msgText,
-      toastLength: Toast.LENGTH_SHORT,
-      gravity: ToastGravity.BOTTOM,
-      backgroundColor: Colors.lightBlue,
-      textColor: Colors.white,
-      fontSize: 14.0,
     );
   }
 }
