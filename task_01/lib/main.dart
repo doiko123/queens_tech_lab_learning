@@ -46,10 +46,10 @@ class _MyHomePageState extends State<MyHomePage> {
       );
       _counter++;
     });
-    nextpage();
+    _showNextPage();
   }
 
-  void nextpage() async {
+  void _showNextPage() async {
     // Aページへ遷移
     await Navigator.of(context)
         .pushReplacement(MaterialPageRoute(builder: (context) {
