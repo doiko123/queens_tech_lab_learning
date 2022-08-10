@@ -3,6 +3,8 @@ import 'package:task_02/compornents/commons/text_input_form.dart';
 import 'package:task_02/screens/a_page.dart';
 import 'package:task_02/screens/b_page.dart';
 
+import 'compornents/commons/link_button.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -48,26 +50,16 @@ class _MyHomePageState extends State<MyHomePage> {
           const SizedBox(
             height: 24,
           ),
-          ElevatedButton(
-            onPressed: () => _showAPage(),
-            child: const Text('A PageへGO'),
-            style: ElevatedButton.styleFrom(
-              primary: Colors.lightBlue,
-              onPrimary: Colors.white,
-              shape: const StadiumBorder(),
-            ),
+          LinkButton(
+            buttonText: 'A PageへGO',
+            onPressed: _showAPage,
           ),
           const SizedBox(
             height: 16,
           ),
-          ElevatedButton(
-            onPressed: () => _showBPage(),
-            child: const Text('B PageへGO'),
-            style: ElevatedButton.styleFrom(
-              primary: Colors.lightBlue,
-              onPrimary: Colors.white,
-              shape: const StadiumBorder(),
-            ),
+          LinkButton(
+            buttonText: 'B PageへGO',
+            onPressed: _showBPage,
           ),
           const SizedBox(
             height: 24,
