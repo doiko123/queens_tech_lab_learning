@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:task_02/compornents/commons/text_input_form.dart';
+import 'package:task_02/components/commons/text_input_form.dart';
 
 class BPage extends StatelessWidget {
   const BPage({Key? key}) : super(key: key);

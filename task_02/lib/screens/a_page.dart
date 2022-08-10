@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:task_02/compornents/commons/page_text.dart';
+import 'package:task_02/components/commons/page_text.dart';
 
 class APage extends StatelessWidget {
   final String textString;
