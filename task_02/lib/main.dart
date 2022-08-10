@@ -52,14 +52,14 @@ class _MyHomePageState extends State<MyHomePage> {
             height: 24,
           ),
           LinkButton(
-            buttonText: 'A PageへGO',
+            textString: 'A PageへGO',
             onPressed: _showAPage,
           ),
           const SizedBox(
             height: 16,
           ),
           LinkButton(
-            buttonText: 'B PageへGO',
+            textString: 'B PageへGO',
             onPressed: _showBPage,
           ),
           const SizedBox(

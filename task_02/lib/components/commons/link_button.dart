@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 class LinkButton extends StatelessWidget {
-  final String buttonText;
+  final String textString;
   final Function() onPressed;
   const LinkButton({
     Key? key,
-    required this.buttonText,
+    required this.textString,
     required this.onPressed,
   }) : super(key: key);
 
@@ -13,7 +13,7 @@ class LinkButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: onPressed,
-      child: Text(buttonText),
+      child: Text(textString),
       style: ElevatedButton.styleFrom(
         primary: Colors.lightBlue,
         onPrimary: Colors.white,
