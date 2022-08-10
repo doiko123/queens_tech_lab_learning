@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:task_02/compornents/commons/page_text.dart';
 
 class APage extends StatelessWidget {
-  final String pageText;
+  final String textString;
   const APage({
     Key? key,
-    required this.pageText,
+    required this.textString,
   }) : super(key: key);
 
   @override
@@ -15,12 +16,7 @@ class APage extends StatelessWidget {
       ),
       body: Container(
         alignment: Alignment.center,
-        child: Text(
-          pageText,
-          style: const TextStyle(
-            fontSize: 24,
-          ),
-        ),
+        child: PageText(textString: textString),
       ),
     );
   }

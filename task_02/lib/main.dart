@@ -4,6 +4,7 @@ import 'package:task_02/screens/a_page.dart';
 import 'package:task_02/screens/b_page.dart';
 
 import 'compornents/commons/link_button.dart';
+import 'compornents/commons/page_text.dart';
 
 void main() {
   runApp(const MyApp());
@@ -34,7 +35,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final TextEditingController _textEditingController = TextEditingController();
-  late String _pageText = '';
+  late String _textString = '';
 
   @override
   Widget build(BuildContext context) {
@@ -64,12 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
           const SizedBox(
             height: 24,
           ),
-          Text(
-            _pageText,
-            style: const TextStyle(
-              fontSize: 16,
-            ),
-          ),
+          PageText(textString: _textString),
         ],
       ),
     );
@@ -80,7 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
       context,
       MaterialPageRoute(
         builder: (_) => APage(
-          pageText: _textEditingController.text,
+          textString: _textEditingController.text,
         ),
       ),
     );
@@ -94,9 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     ).then((result) {
       if (result.isNotEmpty) {
-        setState(() {
-          _pageText = result['inputText'];
-        });
+        setState(() => _textString = result['textString']);
       }
     });
   }

@@ -14,7 +14,7 @@ class BPage extends StatelessWidget {
         Navigator.pop(
           context,
           {
-            'inputText': _textEditingController.text,
+            'textString': _textEditingController.text,
           },
         );
         return Future.value(false);
