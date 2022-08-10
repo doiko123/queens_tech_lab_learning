@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_02/screens/a_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,13 +29,51 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final TextEditingController _textEditingController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Container(),
+      body: Column(
+        children: [
+          TextFormField(
+            controller: _textEditingController,
+            decoration: const InputDecoration(
+              hintText: '好きな言葉を入力してね',
+              contentPadding: EdgeInsets.symmetric(
+                vertical: 4.0,
+                horizontal: 16.0,
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 24,
+          ),
+          ElevatedButton(
+            onPressed: () => _showAPage(),
+            child: const Text('A PageへGO'),
+            style: ElevatedButton.styleFrom(
+              primary: Colors.lightBlue,
+              onPrimary: Colors.white,
+              shape: const StadiumBorder(),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  void _showAPage() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => APage(
+          pageText: _textEditingController.text,
+        ),
+      ),
     );
   }
 }
