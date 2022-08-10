@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:task_02/screens/a_page.dart';
+import 'package:task_02/screens/b_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,6 +31,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final TextEditingController _textEditingController = TextEditingController();
+  late String _pageText = '';
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +62,28 @@ class _MyHomePageState extends State<MyHomePage> {
               onPrimary: Colors.white,
               shape: const StadiumBorder(),
             ),
-          )
+          ),
+          const SizedBox(
+            height: 16,
+          ),
+          ElevatedButton(
+            onPressed: () => _showBPage(),
+            child: const Text('B PageへGO'),
+            style: ElevatedButton.styleFrom(
+              primary: Colors.lightBlue,
+              onPrimary: Colors.white,
+              shape: const StadiumBorder(),
+            ),
+          ),
+          const SizedBox(
+            height: 24,
+          ),
+          Text(
+            _pageText,
+            style: const TextStyle(
+              fontSize: 16,
+            ),
+          ),
         ],
       ),
     );
@@ -75,5 +98,20 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
     );
+  }
+
+  Future<void> _showBPage() async {
+    await Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => const BPage(),
+      ),
+    ).then((result) {
+      if (result.isNotEmpty) {
+        setState(() {
+          _pageText = result['inputText'];
+        });
+      }
+    });
   }
 }
