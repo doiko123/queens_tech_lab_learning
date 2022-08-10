@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_02/compornents/commons/text_input_form.dart';
 
 class BPage extends StatelessWidget {
   const BPage({Key? key}) : super(key: key);
@@ -22,15 +23,8 @@ class BPage extends StatelessWidget {
         appBar: AppBar(
           title: const Text('B Page'),
         ),
-        body: TextFormField(
-          controller: _textEditingController,
-          decoration: const InputDecoration(
-            hintText: '好きな言葉を入力してね',
-            contentPadding: EdgeInsets.symmetric(
-              vertical: 4.0,
-              horizontal: 16.0,
-            ),
-          ),
+        body: TextInputForm(
+          textEditingController: _textEditingController,
         ),
       ),
     );

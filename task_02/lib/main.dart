@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_02/compornents/commons/text_input_form.dart';
 import 'package:task_02/screens/a_page.dart';
 import 'package:task_02/screens/b_page.dart';
 
@@ -41,15 +42,8 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Column(
         children: [
-          TextFormField(
-            controller: _textEditingController,
-            decoration: const InputDecoration(
-              hintText: '好きな言葉を入力してね',
-              contentPadding: EdgeInsets.symmetric(
-                vertical: 4.0,
-                horizontal: 16.0,
-              ),
-            ),
+          TextInputForm(
+            textEditingController: _textEditingController,
           ),
           const SizedBox(
             height: 24,
