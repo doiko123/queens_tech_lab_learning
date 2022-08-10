@@ -63,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
             onPressed: _showBPage,
           ),
           const SizedBox(
-            height: 24,
+            height: 80,
           ),
           PageText(textString: _textString),
         ],
