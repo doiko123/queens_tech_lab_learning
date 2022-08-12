@@ -25,6 +25,7 @@ class BPage extends StatelessWidget {
         ),
         body: TextInputForm(
           textEditingController: _textEditingController,
+          hintTextString: '好きな言葉を入力してね',
         ),
       ),
     );

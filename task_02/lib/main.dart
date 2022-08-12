@@ -47,6 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
         children: [
           TextInputForm(
             textEditingController: _textEditingController,
+            hintTextString: '好きな言葉を入力してね',
           ),
           const SizedBox(
             height: 24,
