@@ -4,6 +4,7 @@ import 'package:task_02/components/commons/page_text.dart';
 import 'package:task_02/components/commons/text_input_form.dart';
 import 'package:task_02/screens/a_page.dart';
 import 'package:task_02/screens/b_page.dart';
+import 'package:task_02/utility/const.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,11 +16,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: Const.appName,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Top Page'),
+      home: const MyHomePage(
+        title: Const.topPage,
+      ),
     );
   }
 }
@@ -46,20 +49,20 @@ class _MyHomePageState extends State<MyHomePage> {
         children: [
           TextInputForm(
             textEditingController: _textEditingController,
-            hintTextString: '好きな言葉を入力してね',
+            hintTextString: Const.pleaseEnterText,
           ),
           const SizedBox(
             height: 24,
           ),
           LinkButton(
-            textString: 'A PageへGO',
+            textString: Const.linkToAPage,
             onPressed: _showAPage,
           ),
           const SizedBox(
             height: 16,
           ),
           LinkButton(
-            textString: 'B PageへGO',
+            textString: Const.linkToBPage,
             onPressed: _showBPage,
           ),
           const SizedBox(
