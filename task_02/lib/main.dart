@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:task_02/components/commons/link_button.dart';
+import 'package:task_02/components/commons/page_text.dart';
 import 'package:task_02/components/commons/text_input_form.dart';
 import 'package:task_02/screens/a_page.dart';
 import 'package:task_02/screens/b_page.dart';
-
-import 'components/commons/link_button.dart';
-import 'components/commons/page_text.dart';
 
 void main() {
   runApp(const MyApp());
