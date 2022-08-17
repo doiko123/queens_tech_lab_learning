@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:task_02/components/commons/text_input_form.dart';
-import 'package:task_02/utility/const.dart';
+import 'package:task_02/utility/const/text_string.dart';
 
 class BPage extends StatelessWidget {
   const BPage({Key? key}) : super(key: key);
@@ -22,11 +22,11 @@ class BPage extends StatelessWidget {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: const Text(Const.bPage),
+          title: const Text(TextString.bPage),
         ),
         body: TextInputForm(
           textEditingController: _textEditingController,
-          hintTextString: Const.pleaseEnterText,
+          hintTextString: TextString.pleaseEnterText,
         ),
       ),
     );

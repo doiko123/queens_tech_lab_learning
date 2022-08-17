@@ -1,4 +1,4 @@
-class Const {
+class TextString {
   // appName
   static const String appName = 'task_02';
   // pageTitle

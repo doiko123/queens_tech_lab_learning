@@ -4,7 +4,7 @@ import 'package:task_02/components/commons/page_text.dart';
 import 'package:task_02/components/commons/text_input_form.dart';
 import 'package:task_02/screens/a_page.dart';
 import 'package:task_02/screens/b_page.dart';
-import 'package:task_02/utility/const.dart';
+import 'package:task_02/utility/const/text_string.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,12 +16,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: Const.appName,
+      title: TextString.appName,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
       home: const MyHomePage(
-        title: Const.topPage,
+        title: TextString.topPage,
       ),
     );
   }
@@ -49,20 +49,20 @@ class _MyHomePageState extends State<MyHomePage> {
         children: [
           TextInputForm(
             textEditingController: _textEditingController,
-            hintTextString: Const.pleaseEnterText,
+            hintTextString: TextString.pleaseEnterText,
           ),
           const SizedBox(
             height: 24,
           ),
           LinkButton(
-            textString: Const.linkToAPage,
+            textString: TextString.linkToAPage,
             onPressed: _showAPage,
           ),
           const SizedBox(
             height: 16,
           ),
           LinkButton(
-            textString: Const.linkToBPage,
+            textString: TextString.linkToBPage,
             onPressed: _showBPage,
           ),
           const SizedBox(
