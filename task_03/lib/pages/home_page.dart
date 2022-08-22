@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:task_03/components/list_item.dart';
-import 'package:task_03/data/menu_list_data.dart';
-import 'package:task_03/models/types/menu_list_item.dart';
+import 'package:task_03/data/shop_list_data.dart';
+import 'package:task_03/models/types/shop.dart';
 
 class HomePage extends StatefulWidget {
   final String title;
@@ -22,21 +22,21 @@ class _HomePageState extends State<HomePage> {
         title: Text(widget.title),
       ),
       body: ListView(
-        children: _menuList(
-          menuList: menuListData,
+        children: _shopListMenu(
+          shopList: shopListData,
         ),
       ),
     );
   }
 }
 
-List<ListItem> _menuList({
-  required List<MenuListItem> menuList,
+List<ListItem> _shopListMenu({
+  required List<Shop> shopList,
 }) {
-  return menuList
-      .map((item) => ListItem(
-            textString: item.textString,
-            icon: item.icon,
+  return shopList
+      .map((shop) => ListItem(
+            textString: shop.name,
+            icon: shop.icon,
           ))
       .toList();
 }
