@@ -1,37 +1,37 @@
 import 'package:flutter/material.dart';
-import 'package:task_03/models/types/menu_list_item.dart';
+import 'package:task_03/models/types/shop.dart';
 
-List<MenuListItem> menuListData = [
-  MenuListItem(
-    textString: 'ゴリドナルド',
+List<Shop> shopListData = [
+  Shop(
+    name: 'ゴリドナルド',
     icon: const Icon(
       Icons.fastfood,
     ),
   ),
-  MenuListItem(
-    textString: 'ゴリライレブン',
+  Shop(
+    name: 'ゴリライレブン',
     icon: const Icon(
       Icons.local_convenience_store_rounded,
     ),
   ),
-  MenuListItem(
-    textString: 'ゴリゼリヤ',
+  Shop(
+    name: 'ゴリゼリヤ',
     icon: const Icon(Icons.local_dining),
   ),
-  MenuListItem(
-    textString: 'エネゴリ',
+  Shop(
+    name: 'エネゴリ',
     icon: const Icon(
       Icons.local_gas_station,
     ),
   ),
-  MenuListItem(
-    textString: 'ゴリンランドリー',
+  Shop(
+    name: 'ゴリンランドリー',
     icon: const Icon(
       Icons.local_laundry_service,
     ),
   ),
-  MenuListItem(
-    textString: 'ゴリノピザ',
+  Shop(
+    name: 'ゴリノピザ',
     icon: const Icon(
       Icons.local_pizza_sharp,
     ),
