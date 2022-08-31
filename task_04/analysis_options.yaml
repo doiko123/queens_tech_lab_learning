@@ -4,3 +4,4 @@ analyzer:
     - "**/*.g.dart"
 linter:
   rules:
+    sort_pub_dependencies: false
