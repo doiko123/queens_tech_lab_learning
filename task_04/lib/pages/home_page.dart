@@ -15,8 +15,7 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body:
-          Container(), // This trailing comma makes auto-formatting nicer for build methods.
+      body: Container(),
     );
   }
 }
