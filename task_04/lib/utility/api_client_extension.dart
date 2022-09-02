@@ -1,12 +1,13 @@
 import 'package:dio/dio.dart';
-import 'package:task_04/utility/environment_variables.dart';
 
+// dart-defineで定義したapiのbaseUrl
+const apiBaseUrl = String.fromEnvironment('API_BASE_URL');
 
 class APIClientExtension with DioMixin implements Dio {
   APIClientExtension() {
     options = BaseOptions(
       // TODO(doiko): header情報を受け取って与えられるようにする
-      baseUrl: EnvironmentVariables.connpassBaseURL,
+      baseUrl: apiBaseUrl,
       validateStatus: (status) {
         return status! < 300;
       },
