@@ -3,9 +3,7 @@ import 'package:task_04/models/series.dart';
 
 part 'event.g.dart';
 
-@JsonSerializable(
-  fieldRename: FieldRename.snake,
-)
+@JsonSerializable()
 // イベント
 class Event {
   Event({

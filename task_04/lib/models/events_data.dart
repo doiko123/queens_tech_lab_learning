@@ -3,9 +3,7 @@ import 'package:task_04/models/event.dart';
 
 part 'events_data.g.dart';
 
-@JsonSerializable(
-  fieldRename: FieldRename.snake,
-)
+@JsonSerializable()
 // イベント情報（connpass イベントサーチAPIのレスポンス）
 class EventsData {
   EventsData({
