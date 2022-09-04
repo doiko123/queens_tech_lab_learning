@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:task_04/pages/home_page.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
+import 'package:task_04/ui/pages/home_page.dart';
 import 'package:task_04/view_models/event_store.dart';
 
 void main() {

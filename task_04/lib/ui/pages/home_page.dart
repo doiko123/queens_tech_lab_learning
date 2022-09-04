@@ -16,6 +16,7 @@ class _HomePageState extends State<HomePage> {
         title: Text(widget.title),
       ),
       body: Container(),
+      // TODO(doiko): keywordをフォームに入力できるようにしてそれを元にAPIを叩き、結果を表示できるようにする
     );
   }
 }
