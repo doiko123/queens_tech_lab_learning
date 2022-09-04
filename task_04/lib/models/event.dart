@@ -39,9 +39,11 @@ class Event {
   String description; // 概要(HTML形式)
   String eventUrl; // connpass.com上のURL
   String hashTag; // Twitterのハッシュタグ
-  String startedAt; // イベント開催日時 (ISO-8601形式) -> DateTime？
-  String endedAt; // 	イベント終了日時 (ISO-8601形式) -> DateTime？
   int limit; // 定員
+  @JsonKey(fromJson: _parseTimestamp)
+  DateTime startedAt; // イベント開催日時 (ISO-8601形式)
+  @JsonKey(fromJson: _parseTimestamp)
+  DateTime endedAt; // イベント終了日時 (ISO-8601形式)
   String eventType; // イベント参加タイプ
   Series series; // グループ
   int ownerId; // 管理者のID
@@ -49,11 +51,22 @@ class Event {
   String ownerDisplayName; // 管理者の表示名
   int accepted; // 参加者数
   int waiting; // 補欠者数
-  String updatedAt; // 更新日時 (ISO-8601形式) -> DateTime？
+  @JsonKey(fromJson: _parseTimestamp)
+  DateTime updatedAt; // 更新日時 (ISO-8601形式)
   String? address; // 開催場所
   String? place; // 開催会場
+  @JsonKey(fromJson: _parseNullableNumString)
   double? lat; // 開催会場の緯度
+  @JsonKey(fromJson: _parseNullableNumString)
   double? lon; // 開催会場の経度
 
   Map<String, dynamic> toJson() => _$EventToJson(this);
+}
+
+DateTime _parseTimestamp(String value) {
+  return DateTime.parse(value).toLocal();
+}
+
+double? _parseNullableNumString(String? value) {
+  return value != null ? double.tryParse(value) : null;
 }
