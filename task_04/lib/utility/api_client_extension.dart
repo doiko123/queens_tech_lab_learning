@@ -1,14 +1,20 @@
+import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
 
 class APIClientExtension with DioMixin implements Dio {
   @override
-  set options(BaseOptions options) {
+  set options(
+    BaseOptions options,
+  ) {
     options
       // dart-defineで定義したapiのbaseUrl
       ..baseUrl = const String.fromEnvironment('API_BASE_URL')
       ..headers['content-type'] = 'application/json';
     super.options = options;
   }
+
+  @override
+  HttpClientAdapter get httpClientAdapter => DefaultHttpClientAdapter();
 
   @override
   Interceptors get interceptors {
