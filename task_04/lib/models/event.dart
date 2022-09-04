@@ -15,7 +15,6 @@ class Event {
     required this.hashTag,
     required this.startedAt,
     required this.endedAt,
-    required this.limit,
     required this.eventType,
     required this.series,
     required this.ownerId,
@@ -24,6 +23,7 @@ class Event {
     required this.accepted,
     required this.waiting,
     required this.updatedAt,
+    this.limit,
     this.address,
     this.place,
     this.lat,
@@ -39,7 +39,6 @@ class Event {
   String description; // 概要(HTML形式)
   String eventUrl; // connpass.com上のURL
   String hashTag; // Twitterのハッシュタグ
-  int limit; // 定員
   @JsonKey(fromJson: _parseTimestamp)
   DateTime startedAt; // イベント開催日時 (ISO-8601形式)
   @JsonKey(fromJson: _parseTimestamp)
@@ -53,6 +52,7 @@ class Event {
   int waiting; // 補欠者数
   @JsonKey(fromJson: _parseTimestamp)
   DateTime updatedAt; // 更新日時 (ISO-8601形式)
+  int? limit; // 定員
   String? address; // 開催場所
   String? place; // 開催会場
   @JsonKey(fromJson: _parseNullableNumString)
