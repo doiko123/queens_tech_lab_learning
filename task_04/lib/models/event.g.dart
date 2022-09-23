@@ -18,7 +18,6 @@ Event _$EventFromJson(Map<String, dynamic> json) => Event(
       startedAt: _parseTimestamp(json['started_at'] as String),
       endedAt: _parseTimestamp(json['ended_at'] as String),
       eventType: json['event_type'] as String,
-      series: Series.fromJson(json['series'] as Map<String, dynamic>),
       ownerId: json['owner_id'] as int,
       ownerNickname: json['owner_nickname'] as String,
       ownerDisplayName: json['owner_display_name'] as String,
@@ -30,6 +29,9 @@ Event _$EventFromJson(Map<String, dynamic> json) => Event(
       place: json['place'] as String?,
       lat: _parseNullableNumString(json['lat'] as String?),
       lon: _parseNullableNumString(json['lon'] as String?),
+      series: json['series'] == null
+          ? null
+          : Series.fromJson(json['series'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$EventToJson(Event instance) => <String, dynamic>{
@@ -42,7 +44,6 @@ Map<String, dynamic> _$EventToJson(Event instance) => <String, dynamic>{
       'started_at': instance.startedAt.toIso8601String(),
       'ended_at': instance.endedAt.toIso8601String(),
       'event_type': instance.eventType,
-      'series': instance.series,
       'owner_id': instance.ownerId,
       'owner_nickname': instance.ownerNickname,
       'owner_display_name': instance.ownerDisplayName,
@@ -54,4 +55,5 @@ Map<String, dynamic> _$EventToJson(Event instance) => <String, dynamic>{
       'place': instance.place,
       'lat': instance.lat,
       'lon': instance.lon,
+      'series': instance.series,
     };

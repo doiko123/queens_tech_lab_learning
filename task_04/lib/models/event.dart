@@ -16,7 +16,6 @@ class Event {
     required this.startedAt,
     required this.endedAt,
     required this.eventType,
-    required this.series,
     required this.ownerId,
     required this.ownerNickname,
     required this.ownerDisplayName,
@@ -28,6 +27,7 @@ class Event {
     this.place,
     this.lat,
     this.lon,
+    this.series,
   });
 
   factory Event.fromJson(Map<String, dynamic> json) => _$EventFromJson(json);
@@ -44,7 +44,6 @@ class Event {
   @JsonKey(fromJson: _parseTimestamp)
   DateTime endedAt; // イベント終了日時 (ISO-8601形式)
   String eventType; // イベント参加タイプ
-  Series series; // グループ
   int ownerId; // 管理者のID
   String ownerNickname; // 管理者のニックネーム
   String ownerDisplayName; // 管理者の表示名
@@ -59,6 +58,7 @@ class Event {
   double? lat; // 開催会場の緯度
   @JsonKey(fromJson: _parseNullableNumString)
   double? lon; // 開催会場の経度
+  Series? series; // グループ
 
   Map<String, dynamic> toJson() => _$EventToJson(this);
 }
