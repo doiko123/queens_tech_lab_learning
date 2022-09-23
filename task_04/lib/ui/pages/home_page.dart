@@ -10,6 +10,20 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  late ScrollController _scrollController;
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController = ScrollController();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _scrollController.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,14 +31,16 @@ class _HomePageState extends State<HomePage> {
         title: Text(widget.title),
       ),
       // TODO(doiko): keywordをフォームに入力できるようにしてそれを元にAPIを叩き、結果を表示できるようにする
-      body: const SingleChildScrollView(
+      body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.only(
+          padding: const EdgeInsets.only(
             top: 16,
             right: 24,
             left: 24,
           ),
-          child: EventList(),
+          child: EventList(
+            scrollController: _scrollController,
+          ),
         ),
       ),
     );

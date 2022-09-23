@@ -3,14 +3,10 @@ import 'package:provider/provider.dart';
 import 'package:task_04/ui/components/event_card.dart';
 import 'package:task_04/view_models/event_store.dart';
 
-class EventList extends StatefulWidget {
-  const EventList({super.key});
+class EventList extends StatelessWidget {
+  const EventList({super.key, required this.scrollController});
+  final ScrollController scrollController;
 
-  @override
-  _EventListState createState() => _EventListState();
-}
-
-class _EventListState extends State<EventList> {
   @override
   Widget build(BuildContext context) {
     // FutureBuilderじゃだめかも。キーワード入力でリクエスト飛ばして表示させたいので
@@ -43,8 +39,7 @@ class _EventListState extends State<EventList> {
                         keyword: 'flutter',
                       ),
                       child: ListView.builder(
-                        // TODO: スクロール制御する
-                        // controller: scrollController,
+                        controller: scrollController,
                         shrinkWrap: true,
                         itemCount: eventStore.events.length,
                         itemBuilder: (context, index) {
