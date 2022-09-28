@@ -7,7 +7,7 @@ class PaginationListener {
   // スクロール量を検知して与えられた処理を実行する
   void perform({
     required ScrollController scrollController,
-    required VoidCallback fetchData, // スクロール時に実行したい処理（投稿取得 or メッセージ取得）
+    required VoidCallback fetchData, // スクロール時に実行したい処理
   }) {
     scrollController.addListener(() async {
       // 画面のスクロール範囲に対するスクロール量
