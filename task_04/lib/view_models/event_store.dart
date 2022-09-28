@@ -14,6 +14,7 @@ class EventStore extends ChangeNotifier {
 
   Future<void> fetchEvents({
     required String keyword,
+    bool isRefresh = false,
   }) async {
     final response = await _apiClient.getEvents(
       keyword: keyword,
@@ -23,7 +24,11 @@ class EventStore extends ChangeNotifier {
         count: requestEventSize,
       ),
     );
-    events.addAll(response!);
+    if (isRefresh) {
+      events = response ?? [];
+    } else {
+      events.addAll(response!);
+    }
     // 変更を通知する
     notifyListeners();
   }

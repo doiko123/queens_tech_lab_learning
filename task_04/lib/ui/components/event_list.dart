@@ -13,6 +13,7 @@ class EventList extends StatelessWidget {
     return FutureBuilder<dynamic>(
       future: context.read<EventStore>().fetchEvents(
             keyword: 'flutter',
+            isRefresh: true,
           ),
       builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
         switch (snapshot.connectionState) {
@@ -39,6 +40,7 @@ class EventList extends StatelessWidget {
                     return RefreshIndicator(
                       onRefresh: () async => eventStore.fetchEvents(
                         keyword: 'flutter',
+                        isRefresh: true,
                       ),
                       child: ListView.builder(
                         controller: scrollController,
