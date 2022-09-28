@@ -42,16 +42,14 @@ class _HomePageState extends State<HomePage> {
         title: Text(widget.title),
       ),
       // TODO(doiko): keywordをフォームに入力できるようにしてそれを元にAPIを叩き、結果を表示できるようにする
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.only(
-            top: 16,
-            right: 24,
-            left: 24,
-          ),
-          child: EventList(
-            scrollController: _scrollController,
-          ),
+      body: Padding(
+        padding: const EdgeInsets.only(
+          top: 16,
+          right: 24,
+          left: 24,
+        ),
+        child: EventList(
+          scrollController: _scrollController,
         ),
       ),
     );

@@ -31,9 +31,10 @@ class EventList extends StatelessWidget {
               // エラー発生時はエラーメッセージを表示
               if (snapshot.hasError) {
                 return Center(
-                    child: Text(
-                  snapshot.error.toString(),
-                ));
+                  child: Text(
+                    snapshot.error.toString(),
+                  ),
+                );
               } else {
                 return Consumer<EventStore>(
                   builder: (context, eventStore, child) {
