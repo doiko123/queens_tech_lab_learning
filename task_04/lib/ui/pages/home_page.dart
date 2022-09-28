@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:task_04/ui/components/event_list.dart';
+import 'package:task_04/utility/pagination_listener.dart';
+import 'package:task_04/view_models/event_store.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key, required this.title});
@@ -16,6 +19,14 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     _scrollController = ScrollController();
+    final paginationListener = PaginationListener();
+    Future<void> fetchData() =>
+        context.read<EventStore>().fetchEvents(keyword: 'flutter');
+    // スクロール量を検知して表示するイベントを追加する
+    paginationListener.perform(
+      scrollController: _scrollController,
+      fetchData: fetchData,
+    );
   }
 
   @override
