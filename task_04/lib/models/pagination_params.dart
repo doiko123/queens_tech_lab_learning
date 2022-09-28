@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'pagenation_params.g.dart';
+part 'pagination_params.g.dart';
 
 @JsonSerializable()
 // イベント取得におけるページネーション用
