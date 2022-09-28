@@ -14,7 +14,7 @@ class PaginationParams {
   factory PaginationParams.fromJson(Map<String, dynamic> json) =>
       _$PaginationParamsFromJson(json);
 
-  int? start = 1; // 検索の開始位置
+  int? start = defaultStartNum; // 検索の開始位置
   int? order = orderByToInt(OrderBy.updatedAt); // 検索結果の表示順
   int? count = requestEventSize; // 取得件数
 
@@ -40,3 +40,6 @@ int orderByToInt(OrderBy orderBy) {
 
 // リクエスト1回につき取得するイベントの件数
 const int requestEventSize = 10;
+
+// デフォルトのstart件数
+const int defaultStartNum = 1;

@@ -6,8 +6,9 @@ import 'package:task_04/utility/api_client.dart';
 class EventStore extends ChangeNotifier {
   List<Event> events = [];
 
-  int _fetchedEventSize() {
-    return events.isNotEmpty ? events.length : 0;
+  int nextStartNum() {
+    final fetchedEventSize = events.isNotEmpty ? events.length : 0;
+    return fetchedEventSize + defaultStartNum;
   }
 
   final APIClient _apiClient = APIClient();
@@ -16,11 +17,12 @@ class EventStore extends ChangeNotifier {
     required String keyword,
     bool isRefresh = false,
   }) async {
+    final startNum = isRefresh ? defaultStartNum : nextStartNum();
     final response = await _apiClient.getEvents(
       keyword: keyword,
       pagination: PaginationParams(
-        start: _fetchedEventSize() + 1,
-        order: orderByToInt(OrderBy.updatedAt),
+        start: startNum,
+        order: orderByToInt(OrderBy.startedAt),
         count: requestEventSize,
       ),
     );
