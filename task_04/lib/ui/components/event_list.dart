@@ -11,7 +11,9 @@ class EventList extends StatelessWidget {
   Widget build(BuildContext context) {
     // FutureBuilderじゃだめかも。キーワード入力でリクエスト飛ばして表示させたいので
     return FutureBuilder<dynamic>(
-      future: context.read<EventStore>().getEvents(keyword: 'flutter'),
+      future: context.read<EventStore>().fetchEvents(
+            keyword: 'flutter',
+          ),
       builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
         switch (snapshot.connectionState) {
           case ConnectionState.none:
@@ -35,7 +37,7 @@ class EventList extends StatelessWidget {
                 return Consumer<EventStore>(
                   builder: (context, eventStore, child) {
                     return RefreshIndicator(
-                      onRefresh: () async => eventStore.getEvents(
+                      onRefresh: () async => eventStore.fetchEvents(
                         keyword: 'flutter',
                       ),
                       child: ListView.builder(
