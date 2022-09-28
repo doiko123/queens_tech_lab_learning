@@ -15,7 +15,7 @@ class PaginationParams {
       _$PaginationParamsFromJson(json);
 
   int? start = 1; // 検索の開始位置
-  OrderBy? order = OrderBy.updatedAt; // 検索結果の表示順
+  int? order = orderByToInt(OrderBy.updatedAt); // 検索結果の表示順
   int? count = requestEventSize; // 取得件数
 
   Map<String, dynamic> toJson() => _$PaginationParamsToJson(this);
@@ -27,17 +27,14 @@ enum OrderBy {
   createdAt, // 新着順
 }
 
-// enumに対応する値を返すための拡張
-extension OrderByExt on OrderBy {
-  int get order {
-    switch (this) {
-      case OrderBy.updatedAt:
-        return 1;
-      case OrderBy.startedAt:
-        return 2;
-      case OrderBy.createdAt:
-        return 3;
-    }
+int orderByToInt(OrderBy orderBy) {
+  switch (orderBy) {
+    case OrderBy.updatedAt:
+      return 1;
+    case OrderBy.startedAt:
+      return 2;
+    case OrderBy.createdAt:
+      return 3;
   }
 }
 

@@ -11,19 +11,13 @@ part of 'pagination_params.dart';
 PaginationParams _$PaginationParamsFromJson(Map<String, dynamic> json) =>
     PaginationParams(
       start: json['start'] as int?,
-      order: $enumDecodeNullable(_$OrderByEnumMap, json['order']),
+      order: json['order'] as int?,
       count: json['count'] as int?,
     );
 
 Map<String, dynamic> _$PaginationParamsToJson(PaginationParams instance) =>
     <String, dynamic>{
       'start': instance.start,
-      'order': _$OrderByEnumMap[instance.order],
+      'order': instance.order,
       'count': instance.count,
     };
-
-const _$OrderByEnumMap = {
-  OrderBy.updatedAt: 'updatedAt',
-  OrderBy.startedAt: 'startedAt',
-  OrderBy.createdAt: 'createdAt',
-};
