@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Task 04',
         theme: ThemeData(
-          primarySwatch: Colors.blue,
+          primarySwatch: Colors.purple,
         ),
         home: const HomePage(title: 'Task 04'),
         localizationsDelegates: const [
