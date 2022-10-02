@@ -13,6 +13,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final TextEditingController _searchQuery = TextEditingController();
   late ScrollController _scrollController;
 
   @override
@@ -20,8 +21,9 @@ class _HomePageState extends State<HomePage> {
     super.initState();
     _scrollController = ScrollController();
     final paginationListener = PaginationListener();
-    Future<void> fetchData() =>
-        context.read<EventStore>().fetchEvents(keyword: 'flutter');
+    Future<void> fetchData() => context.read<EventStore>().fetchEvents(
+          keyword: _searchQuery.text,
+        );
     // スクロール量を検知して表示するイベントを追加する
     paginationListener.perform(
       scrollController: _scrollController,
@@ -39,9 +41,34 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: TextField(
+          controller: _searchQuery,
+          style: const TextStyle(
+            color: Colors.white,
+          ),
+          decoration: const InputDecoration(
+            labelText: 'キーワードでconnpassのイベントを検索',
+            hintText: ' >  ここにキーワードを入れてね',
+            labelStyle: TextStyle(
+              color: Colors.white,
+            ),
+            hintStyle: TextStyle(
+              color: Colors.white60,
+            ),
+          ),
+        ),
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.search),
+            onPressed: () {
+              context.read<EventStore>().fetchEvents(
+                    keyword: _searchQuery.text,
+                    isRefresh: true,
+                  );
+            },
+          )
+        ],
       ),
-      // TODO(doiko): keywordをフォームに入力できるようにしてそれを元にAPIを叩き、結果を表示できるようにする
       body: Padding(
         padding: const EdgeInsets.only(
           top: 16,
@@ -50,6 +77,7 @@ class _HomePageState extends State<HomePage> {
         ),
         child: EventList(
           scrollController: _scrollController,
+          recentSearchText: _searchQuery.text,
         ),
       ),
     );
